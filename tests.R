@@ -1,16 +1,3 @@
-intF <- function(t) {
-  sl = 1
-  mid = 80
-  1 / (1 + exp(-sl * (t - mid)))
-}
-
-sum(intF(seq(1, 100)))
-
-plot(seq(1, 100), (intF(seq(1, 100))), type = "l", lwd = 2, xlab = "", ylab = "", cex.axis = 2, ylim = c(0, 1))
-
-
-intF(100)
-
 
 over_sucs <- seq(0, 100, 10)
 mins <- c(1, 0.46, 0.26, 0.16, 0.12, 0.1, 0.1, 0.13, 0.2, 0.4, 1)
@@ -30,33 +17,6 @@ polygon(x = c(over_sucs[5], over_sucs[5:6], over_sucs[6]), y = c(1, 0.5, 0.5, 1)
 
 ######################
 
-###############
-
-# damage function
-
-dam0 <- function(n) {
-  c = 0.466
-  d = 3.5
-  (c - (c * exp(-d * n)))
-}
-
-
-plot(seq(0, 3, 0.1), dam0(seq(0, 3, 0.1)), type = "l", lwd = 2, 
-     xlab = "Pest density, N", ylab = "Proportional damage, D(N) x S(t)", 
-     cex.axis = 2, cex.lab = 2)
-
-abline(v = 0.05)
-
-dam <- function(n) {
-  c = 1
-  d = 3.5
-  (c - (c * exp(-d * n))) / 33.333
-}
-
-
-plot(seq(0, 3, 0.1), dam(seq(0, 3, 0.1)), type = "l", lwd = 2, 
-     xlab = "Pest density, N", ylab = "Proportional damage\nper day, D(N) x S(t)", 
-     cex.axis = 2, cex.lab = 2)
 
 
 ######
@@ -64,14 +24,14 @@ plot(seq(0, 3, 0.1), dam(seq(0, 3, 0.1)), type = "l", lwd = 2,
 
 modelo <- function(x) {
   
-  ires = 4
+  ires = 8
   
   t <- seq(0, 100)
   
   res <- rep(NA, length(x))
   
   pop <- rep(NA, length(t))
-  pop[1] <- 0.01
+  pop[1] <- 5
   
   dama <- rep(NA, length(t))
   dama[1] <- 0
@@ -80,7 +40,7 @@ modelo <- function(x) {
   dama1[1] <- 0
   
   for(i in 1: length(t)) {
-    pop[i+1] <- pop[i] * (1 + 0.4 * (1 - (pop[i] / 150)))
+    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
     if(i >= x[1] & i <= (x[1] + ires) | 
        i >= x[2] & i <= (x[2] + ires) | 
        i >= x[3] & i <= (x[3] + ires) | 
@@ -110,7 +70,7 @@ modelo <- function(x) {
 testt <- function(t) {
   
   pop <- rep(NA, length(t))
-  pop[1] <- 0.01
+  pop[1] <- 0.000005
   
   dama <- rep(NA, length(t))
   dama[1] <- 0
@@ -119,7 +79,7 @@ testt <- function(t) {
   dama1[1] <- 0
   
   for(i in 1: length(t)) {
-    pop[i+1] <- pop[i] * (1 + 0.4 * (1 - (pop[i] / 150)))
+    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
     #if(i == ap) pop[i+1] <- 0.39
     dama[i+1] <- (pop[i] * 0.001) * sus10046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -134,7 +94,7 @@ testt <- function(t) {
 
 plot(testt(seq(0, 100))[[1]], xlab = "Time (t, days)", 
      ylab = "Pest density per plant", cex.lab = 2, type = "l", 
-     cex.axis = 2, lwd  = 2, xlim = c(0, 100))
+     cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 25))
 
 plot(testt(seq(0, 100))[[2]], xlab = "Time (t, days)", 
      ylab = "Cumulative damage", cex.lab = 2, type = "l", 
@@ -360,7 +320,7 @@ for(i in 1: length(f)){
   SPL101[i] <- str_pl101A(f[i])
 }
 
-SPL101
+SPL101[which.min(SPL101)]
 
 plot(f, SPL101, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -468,7 +428,7 @@ for(i in 1: length(f)){
   SPL20026[i] <- str_pl20026A(f[i])
 }
 
-SPL20026
+SPL20026[which.min(SPL20026)]
 
 plot(f, SPL20026, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -626,7 +586,7 @@ for(i in 1: length(f)){
   SPL20046[i] <- str_pl20046A(f[i])
 }
 
-SPL20046
+SPL20046[which.min(SPL20046)]
 
 plot(f, SPL20046, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -789,7 +749,7 @@ for(i in 1: length(f)){
   SPL201[i] <- str_pl201A(f[i])
 }
 
-SPL201
+SPL201[which.min(SPL201)]
 
 plot(f, SPL201, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -954,7 +914,7 @@ for(i in 1: length(f)){
   SPL30016[i] <- str_pl30016A(f[i])
 }
 
-SPL30016
+SPL30016[which.min(SPL30016)]
 
 plot(f, SPL30016, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -1170,7 +1130,7 @@ for(i in 1: length(f)){
   SPL30026[i] <- str_pl30026A(f[i])
 }
 
-SPL30026
+SPL30026[which.min(SPL30026)]
 
 plot(f, SPL30026, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -1329,7 +1289,7 @@ for(i in 1: length(f)){
   SPL30046[i] <- str_pl30046A(f[i])
 }
 
-SPL30046
+SPL30046[which.min(SPL30046)]
 
 plot(f, SPL30046, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -1483,7 +1443,7 @@ for(i in 1: length(f)){
   SPL301[i] <- str_pl301A(f[i])
 }
 
-SPL301
+SPL301[which.min(SPL301)]
 
 plot(f, SPL301, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -1640,7 +1600,7 @@ for(i in 1: length(f)){
   SPL40012[i] <- str_pl40012A(f[i])
 }
 
-SPL40012
+SPL40012[which.min(SPL40012)]
 
 plot(f, SPL40012, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -1854,7 +1814,7 @@ for(i in 1: length(f)){
   SPL40016[i] <- str_pl40016A(f[i])
 }
 
-SPL40016
+SPL40016[which.min(SPL40016)]
 
 plot(f, SPL40016, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -2070,7 +2030,7 @@ for(i in 1: length(f)){
   SPL40026[i] <- str_pl40026A(f[i])
 }
 
-SPL40026
+SPL40026[which.min(SPL40026)]
 
 plot(f, SPL40026, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -2228,7 +2188,7 @@ for(i in 1: length(f)){
   SPL40046[i] <- str_pl40046A(f[i])
 }
 
-SPL40046
+SPL40046[which.min(SPL40046)]
 
 plot(f, SPL40046, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -2392,7 +2352,7 @@ for(i in 1: length(f)){
   SPL401[i] <- str_pl401A(f[i])
 }
 
-SPL401
+SPL401[which.min(SPL401)]
 
 plot(f, SPL401, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -2556,7 +2516,7 @@ for(i in 1: length(f)){
   SPL5001[i] <- str_pl5001A(f[i])
 }
 
-SPL5001
+SPL5001[which.min(SPL5001)]
 
 plot(f, SPL5001, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -2950,7 +2910,7 @@ plot(sam_th50026(seq(0, 100), th  = 20)[[2]], xlab = "Time (t, days)",
      ylab = "Pest density per plant", cex.lab = 2, type = "l", 
      cex.axis = 2, lwd  = 2, xlim = c(0, 100))
 
-sam_th50026(seq(0, 100), th  = 0.05)[[2]][101]
+sam_th50026(seq(0, 100), th  = 20)[[2]][101]
 
 
 str_pl50026A <- function(x) {
@@ -2992,7 +2952,7 @@ for(i in 1: length(f)){
   SPL50026[i] <- str_pl50026A(f[i])
 }
 
-SPL50026
+SPL50026[which.min(SPL50026)]
 
 plot(f, SPL50026, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -3218,7 +3178,7 @@ for(i in 1: length(f)){
   SPL50046[i] <- str_pl50046A(f[i])
 }
 
-SPL50046
+SPL50046[which.min(SPL50046)]
 
 plot(f, SPL50046, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -3433,7 +3393,7 @@ for(i in 1: length(f)){
   SPL501[i] <- str_pl501A(f[i])
 }
 
-SPL501
+SPL501[which.min(SPL501)]
 
 plot(f, SPL501, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -3597,7 +3557,7 @@ for(i in 1: length(f)){
   SPL6001[i] <- str_pl6001A(f[i])
 }
 
-SPL6001
+SPL6001[which.min(SPL6001)]
 
 plot(f, SPL6001, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -3820,7 +3780,7 @@ for(i in 1: length(f)){
   SPL60016[i] <- str_pl60016A(f[i])
 }
 
-SPL60016
+SPL60016[which.min(SPL60016)]
 
 plot(f, SPL60016, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -4043,7 +4003,7 @@ for(i in 1: length(f)){
   SPL60046[i] <- str_pl60046A(f[i])
 }
 
-SPL60046
+SPL60046[which.min(SPL60046)]
 
 plot(f, SPL60046, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -4261,7 +4221,7 @@ for(i in 1: length(f)){
   SPL601[i] <- str_pl601A(f[i])
 }
 
-SPL601
+SPL601[which.min(SPL601)]
 
 plot(f, SPL601, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -4475,7 +4435,7 @@ for(i in 1: length(f)){
   SPL70013[i] <- str_pl70013A(f[i])
 }
 
-SPL70013
+SPL70013[which.min(SPL70013)]
 
 plot(f, SPL70013, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -4689,7 +4649,7 @@ for(i in 1: length(f)){
   SPL70026[i] <- str_pl70026A(f[i])
 }
 
-SPL70026
+SPL70026[which.min(SPL70026)]
 
 plot(f, SPL70026, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -4781,7 +4741,7 @@ str_pl70026C <- function(x) {
     }
     
     
-    dama[i+1] <- (pop[i] * 0.001) * sus70013(i)
+    dama[i+1] <- (pop[i] * 0.001) * sus70026(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
   }
   
@@ -4905,7 +4865,7 @@ for(i in 1: length(f)){
   SPL70046[i] <- str_pl70046A(f[i])
 }
 
-SPL70046
+SPL70046[which.min(SPL70046)]
 
 plot(f, SPL70046, xlab = "Time (t, days)", 
      ylab = "Damage", cex.lab = 2, type = "l", 
@@ -5018,11 +4978,217 @@ h[, which.min(resp70046C)]
 sam_th70046(seq(0, 100), th  = 20)[[2]][101]
 
 
+#######
+
+# 70 - 1
+
+
+sus701 <- function(t) {
+  sl = 1
+  mid = 30
+  1 / (1 + exp(-sl * (t - mid)))
+}
+
+plot(seq(1, 100), (sus701(seq(1, 100))), type = "l", lwd = 2, xlab = "", 
+     ylab = "", cex.axis = 2, ylim = c(0, 1))
+
+sam_th701 <- function(t, th) {
+  
+  res = 0
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  apl <- 0
+  
+  for(i in 1: length(t)) {
+    
+    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    if(pop[i+1] >= th) {
+      apl <- which(pop >= th)
+      res = 8
+    }
+    
+    if(i <= (apl[length(apl)] + res - 1)) {
+      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+    }
+    dama[i+1] <- (pop[i] * 0.001) * sus701(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  
+  list(pop, dama1)
+  
+}
+
+
+plot(sam_th701(seq(0, 100), th = 20)[[1]], xlab = "Time (t, days)", 
+     ylab = "Pest density per plant", cex.lab = 2, type = "l", 
+     cex.axis = 2, lwd  = 2, xlim = c(0, 100))
+
+plot(sam_th701(seq(0, 100), th  = 20)[[2]], xlab = "Time (t, days)", 
+     ylab = "Damage", cex.lab = 2, type = "l", 
+     cex.axis = 2, lwd  = 2, xlim = c(0, 100))
+
+sam_th701(seq(0, 100), th  = 20)[[2]][101]
+
+
+str_pl701A <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    if(i >= x & i <= (x + ires)) {
+      apl <- pop[x]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus701(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+SPL701 <- rep(NA, length(f))
+
+for(i in 1: length(f)){
+  SPL701[i] <- str_pl701A(f[i])
+}
+
+SPL701[which.min(SPL701)]
+
+plot(f, SPL701, xlab = "Time (t, days)", 
+     ylab = "Damage", cex.lab = 2, type = "l", 
+     cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 1))
+abline(h = sam_th701(seq(0, 100), th  = 20)[[2]][101], lty = 3)
 
 
 
 
+str_pl701B <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus701(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
 
+
+resp701 <- rep(NA, length(g[1, ]))
+
+
+for(i in 1: length(g[1, ])) {
+  resp701[i] <- str_pl701B(g[, i])
+}
+
+
+resp701[which.min(resp701)]
+g[, which.min(resp701)]
+
+sam_th701(seq(0, 100), th  = 20)[[2]][101]
+
+
+
+
+str_pl701C <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus701(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+resp701C <- rep(NA, length(h[1, ]))
+
+for(i in 1: length(h[1, ])) {
+  resp701C[i] <- str_pl701C(h[, i])
+}
+
+
+resp701C[which.min(resp701C)]
+h[, which.min(resp701C)]
+
+sam_th701(seq(0, 100), th  = 20)[[2]][101]
 
 
 
@@ -5732,7 +5898,75 @@ sam_th100(seq(0, 100), th  = 20)[[2]][101]
 
 
 
+
 str_pl100D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+
+j <- combn(seq(1, 100, 2), 4)
+
+resp100D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp100D[i] <- str_pl100D(j[, i])
+}
+
+
+resp100D[which.min(resp100D)]
+j[, which.min(resp100D)]
+
+sam_th100(seq(0, 100), th  = 20)[[2]][101]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+str_pl100P1 <- function(x) {
   
   ires = 8
   
@@ -5771,6 +6005,45 @@ str_pl100D <- function(x) {
 }
 
 
+str_pl100P2 <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  list(pop, dama1)
+}
+
 
 
 plot(sam_th100(seq(0, 100), th = 20)[[1]], xlab = "Time (% crop cycle)", 
@@ -5778,26 +6051,63 @@ plot(sam_th100(seq(0, 100), th = 20)[[1]], xlab = "Time (% crop cycle)",
      cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 25))
 abline(h = 20, lty = 2, lwd = 1.5)
 
+arrows(x0 = which(sam_th100(seq(0, 100), th = 20)[[1]] > 15), y0 = rep(24, 4), 
+       x1 = which(sam_th100(seq(0, 100), th = 20)[[1]] > 15), y1 = rep(21, 4),
+       lwd = 2)
+
 plot(sam_th100(seq(0, 100), th  = 20)[[2]], xlab = "Time (% crop cycle)", 
      ylab = "Cumulative damage", cex.lab = 2, type = "l", 
-     cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 0.3))
+     cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 0.4))
 
-plot(str_pl100D(c(h[, which.min(resp100C)]))[[1]], xlab = "Time (% crop cycle)", 
+abline(h = 0.05, lty = 2, lwd = 1.5)
+
+arrows(x0 = which(sam_th100(seq(0, 100), th = 20)[[1]] > 15), y0 = c(0.15, 0.25, 0.3, 0.35), 
+       x1 = which(sam_th100(seq(0, 100), th = 20)[[1]] > 15), y1 = c(0.1, 0.2, 0.25, 0.3),
+       lwd = 2)
+
+plot(str_pl100P1(c(h[, which.min(resp100C)]))[[1]], xlab = "Time (% crop cycle)", 
      ylab = "Pest density per plant", cex.lab = 2, type = "l", 
      cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 25))
 abline(h = 20, lty = 2, lwd = 1.5)
 
+arrows(x0 = h[, which.min(resp100C)], y0 = rep(10, 3), 
+       x1 = h[, which.min(resp100C)], y1 = rep(7, 3),
+       lwd = 2)
 
-plot(str_pl100D(c(h[, which.min(resp100C)]))[[2]], xlab = "Time (% crop cycle)", 
+#lines(seq(0, 101) + 19 + 9, testt(seq(0, 100))[[1]], lwd  = 2, col = "red")
+
+
+plot(str_pl100P1(c(h[, which.min(resp100C)]))[[2]], xlab = "Time (% crop cycle)", 
      ylab = "Cumulative damage", cex.lab = 2, type = "l", 
      cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 0.3))
 
+abline(h = 0.05, lty = 2, lwd = 1.5)
+
+arrows(x0 = h[, which.min(resp100C)], y0 = rep(0.09, 3), 
+       x1 = h[, which.min(resp100C)], y1 = rep(0.06, 3),
+       lwd = 2)
 
 
 
+plot(str_pl100P2(c(j[, which.min(resp100D)]))[[1]], xlab = "Time (% crop cycle)", 
+     ylab = "Pest density per plant", cex.lab = 2, type = "l", 
+     cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 25))
+abline(h = 20, lty = 2, lwd = 1.5)
+
+arrows(x0 = j[, which.min(resp100D)], y0 = rep(9, 4), 
+       x1 = j[, which.min(resp100D)], y1 = rep(6, 4),
+       lwd = 2)
 
 
+plot(str_pl100P2(c(j[, which.min(resp100D)]))[[2]], xlab = "Time (% crop cycle)", 
+     ylab = "Cumulative damage", cex.lab = 2, type = "l", 
+     cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 0.3))
 
+abline(h = 0.05, lty = 2, lwd = 1.5)
+
+arrows(x0 = j[, which.min(resp100D)], y0 = rep(0.09, 4), 
+       x1 = j[, which.min(resp100D)], y1 = rep(0.06, 4),
+       lwd = 2)
 
 
 

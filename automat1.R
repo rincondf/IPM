@@ -1,9 +1,9 @@
-sink(file = "GR_035.csv")
+sink(file = "RE_15.csv")
 
 ########
 
-GR = 0.35
-
+GR = 0.25
+resT = 15
 
 g <- combn(seq(1, 100), 2)
 h <- combn(seq(1, 100), 3)
@@ -42,7 +42,7 @@ sam_th10046 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -62,7 +62,7 @@ sam_th10046 <- function(t, th) {
 
 str_pl10046A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -137,7 +137,7 @@ sam_th101 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -157,7 +157,7 @@ sam_th101 <- function(t, th) {
 
 str_pl101A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -228,7 +228,7 @@ sam_th20026 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -248,7 +248,7 @@ sam_th20026 <- function(t, th) {
 
 str_pl20026A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -291,7 +291,7 @@ for(i in 1: length(f)){
 
 str_pl20026B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -367,7 +367,7 @@ sam_th20046 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -386,7 +386,7 @@ sam_th20046 <- function(t, th) {
 
 str_pl20046A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -428,7 +428,7 @@ for(i in 1: length(f)){
 
 str_pl20046B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -505,7 +505,7 @@ sam_th201 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -524,7 +524,7 @@ sam_th201 <- function(t, th) {
 
 str_pl201A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -565,7 +565,7 @@ for(i in 1: length(f)){
 
 str_pl201B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -641,7 +641,7 @@ sam_th30016 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -660,7 +660,7 @@ sam_th30016 <- function(t, th) {
 
 str_pl30016A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -701,7 +701,7 @@ for(i in 1: length(f)){
 
 str_pl30016B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -746,7 +746,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl30016C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -824,7 +824,7 @@ sam_th30026 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -845,7 +845,7 @@ sam_th30026 <- function(t, th) {
 
 str_pl30026A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -888,7 +888,7 @@ for(i in 1: length(f)){
 
 str_pl30026B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -964,7 +964,7 @@ sam_th30046 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -984,7 +984,7 @@ sam_th30046 <- function(t, th) {
 
 str_pl30046A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1027,7 +1027,7 @@ for(i in 1: length(f)){
 
 str_pl30046B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1103,7 +1103,7 @@ sam_th301 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -1124,7 +1124,7 @@ sam_th301 <- function(t, th) {
 
 str_pl301A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1167,7 +1167,7 @@ for(i in 1: length(f)){
 
 str_pl301B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1243,7 +1243,7 @@ sam_th40012 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -1262,7 +1262,7 @@ sam_th40012 <- function(t, th) {
 
 str_pl40012A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1305,7 +1305,7 @@ for(i in 1: length(f)){
 
 str_pl40012B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1352,7 +1352,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl40012C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1397,10 +1397,57 @@ for(i in 1: length(h[1, ])) {
 
 
 
+str_pl40012D <- function(x) {
+  
+  ires = resT
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus40012(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp40012D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp40012D[i] <- str_pl40012D(j[, i])
+}
+
+
 
 
 c(sam_th40012(seq(0, 100), th  = 20)[[2]][101], SPL40012[which.min(SPL40012)], 
-  resp40012[which.min(resp40012)], resp40012C[which.min(resp40012C)])
+  resp40012[which.min(resp40012)], resp40012C[which.min(resp40012C)],
+  resp40012D[which.min(resp40012D)])
 
 
 # 40 - 0.16
@@ -1431,7 +1478,7 @@ sam_th40016 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -1450,7 +1497,7 @@ sam_th40016 <- function(t, th) {
 
 str_pl40016A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1492,7 +1539,7 @@ for(i in 1: length(f)){
 
 str_pl40016B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1538,7 +1585,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl40016C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1616,7 +1663,7 @@ sam_th40026 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -1636,7 +1683,7 @@ sam_th40026 <- function(t, th) {
 
 str_pl40026A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1678,7 +1725,7 @@ for(i in 1: length(f)){
 
 str_pl40026B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1721,10 +1768,54 @@ for(i in 1: length(g[1, ])) {
 
 
 
+str_pl40026C <- function(x) {
+  
+  ires = resT
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus40026(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+resp40026C <- rep(NA, length(h[1, ]))
+
+for(i in 1: length(h[1, ])) {
+  resp40026C[i] <- str_pl40026C(h[, i])
+}
+
 
 
 c(sam_th40026(seq(0, 100), th  = 20)[[2]][101], SPL40026[which.min(SPL40026)], 
-  resp40026[which.min(resp40026)])
+  resp40026[which.min(resp40026)], resp40026C[which.min(resp40026C)])
 
 
 # 40 - 0.46
@@ -1756,7 +1847,7 @@ sam_th40046 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -1775,7 +1866,7 @@ sam_th40046 <- function(t, th) {
 
 str_pl40046A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1817,7 +1908,7 @@ for(i in 1: length(f)){
 
 str_pl40046B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1860,9 +1951,56 @@ for(i in 1: length(g[1, ])) {
 
 
 
+str_pl40046C <- function(x) {
+  
+  ires = resT
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus40046(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+resp40046C <- rep(NA, length(h[1, ]))
+
+for(i in 1: length(h[1, ])) {
+  resp40046C[i] <- str_pl40046C(h[, i])
+}
+
+
+
+
 
 c(sam_th40046(seq(0, 100), th  = 20)[[2]][101], SPL40046[which.min(SPL40046)], 
-  resp40046[which.min(resp40046)])
+  resp40046[which.min(resp40046)], resp40046C[which.min(resp40046C)])
 
 #####
 
@@ -1894,7 +2032,7 @@ sam_th401 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -1913,7 +2051,7 @@ sam_th401 <- function(t, th) {
 
 str_pl401A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1954,7 +2092,7 @@ for(i in 1: length(f)){
 
 str_pl401B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -1998,9 +2136,55 @@ for(i in 1: length(g[1, ])) {
 
 
 
+str_pl401C <- function(x) {
+  
+  ires = resT
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus401(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+resp401C <- rep(NA, length(h[1, ]))
+
+for(i in 1: length(h[1, ])) {
+  resp401C[i] <- str_pl401C(h[, i])
+}
+
+
+
 
 c(sam_th401(seq(0, 100), th  = 20)[[2]][101], SPL401[which.min(SPL401)], 
-  resp401[which.min(resp401)])
+  resp401[which.min(resp401)], resp401C[which.min(resp401C)])
 
 
 #####
@@ -2034,7 +2218,7 @@ sam_th5001 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -2053,7 +2237,7 @@ sam_th5001 <- function(t, th) {
 
 str_pl5001A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2094,7 +2278,7 @@ for(i in 1: length(f)){
 
 str_pl5001B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2140,7 +2324,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl5001C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2184,9 +2368,59 @@ for(i in 1: length(h[1, ])) {
 
 
 
+str_pl5001D <- function(x) {
+  
+  ires = resT
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus5001(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp5001D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp5001D[i] <- str_pl5001D(j[, i])
+}
+
+
+
+
+
 
 c(sam_th5001(seq(0, 100), th  = 20)[[2]][101], SPL5001[which.min(SPL5001)],
-  resp5001[which.min(resp5001)], resp5001C[which.min(resp5001C)])
+  resp5001[which.min(resp5001)], resp5001C[which.min(resp5001C)],
+  resp5001D[which.min(resp5001D)])
 
 
 #####
@@ -2219,7 +2453,7 @@ sam_th50016 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -2239,7 +2473,7 @@ sam_th50016 <- function(t, th) {
 
 str_pl50016A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2281,7 +2515,7 @@ for(i in 1: length(f)){
 
 str_pl50016B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2327,7 +2561,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl50016C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2371,9 +2605,58 @@ for(i in 1: length(h[1, ])) {
 
 
 
+str_pl50016D <- function(x) {
+  
+  ires = resT
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus50016(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp50016D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp50016D[i] <- str_pl50016D(j[, i])
+}
+
+
+
+
 
 c(sam_th50016(seq(0, 100), th  = 20)[[2]][101], SPL50016[which.min(SPL50016)],
-  resp50016[which.min(resp50016)], resp50016C[which.min(resp50016C)])
+  resp50016[which.min(resp50016)], resp50016C[which.min(resp50016C)],
+  resp50016D[which.min(resp50016D)])
 
 
 #####
@@ -2407,7 +2690,7 @@ sam_th50026 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -2427,7 +2710,7 @@ sam_th50026 <- function(t, th) {
 
 str_pl50026A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2469,7 +2752,7 @@ for(i in 1: length(f)){
 
 str_pl50026B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2516,7 +2799,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl50026C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2596,7 +2879,7 @@ sam_th50046 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -2615,7 +2898,7 @@ sam_th50046 <- function(t, th) {
 
 str_pl50046A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2656,7 +2939,7 @@ for(i in 1: length(f)){
 
 str_pl50046B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2701,7 +2984,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl50046C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2782,7 +3065,7 @@ sam_th501 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -2802,7 +3085,7 @@ sam_th501 <- function(t, th) {
 
 str_pl501A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2845,7 +3128,7 @@ for(i in 1: length(f)){
 
 str_pl501B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2888,9 +3171,54 @@ for(i in 1: length(g[1, ])) {
 
 
 
+str_pl501C <- function(x) {
+  
+  ires = resT
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus501(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+resp501C <- rep(NA, length(h[1, ]))
+
+for(i in 1: length(h[1, ])) {
+  resp501C[i] <- str_pl501C(h[, i])
+}
+
+
 
 c(sam_th501(seq(0, 100), th  = 20)[[2]][101], SPL501[which.min(SPL501)], 
-  resp501[which.min(resp501)])
+  resp501[which.min(resp501)], resp501C[which.min(resp501C)])
 
 
 #####
@@ -2923,7 +3251,7 @@ sam_th6001 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -2942,7 +3270,7 @@ sam_th6001 <- function(t, th) {
 
 str_pl6001A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -2984,7 +3312,7 @@ for(i in 1: length(f)){
 
 str_pl6001B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3031,7 +3359,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl6001C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3076,8 +3404,59 @@ for(i in 1: length(h[1, ])) {
 
 
 
+
+str_pl6001D <- function(x) {
+  
+  ires = resT
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus6001(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+
+resp6001D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp6001D[i] <- str_pl6001D(j[, i])
+}
+
+
+
+
 c(sam_th6001(seq(0, 100), th  = 20)[[2]][101], SPL6001[which.min(SPL6001)], 
-  resp6001[which.min(resp6001)], resp6001C[which.min(resp6001C)])
+  resp6001[which.min(resp6001)], resp6001C[which.min(resp6001C)], 
+  resp6001D[which.min(resp6001D)])
 
 
 #####
@@ -3111,7 +3490,7 @@ sam_th60016 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -3130,7 +3509,7 @@ sam_th60016 <- function(t, th) {
 
 str_pl60016A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3172,7 +3551,7 @@ for(i in 1: length(f)){
 
 str_pl60016B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3219,7 +3598,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl60016C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3264,8 +3643,57 @@ for(i in 1: length(h[1, ])) {
 
 
 
+str_pl60016D <- function(x) {
+  
+  ires = resT
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus60016(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+
+resp60016D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp60016D[i] <- str_pl60016D(j[, i])
+}
+
+
+
 c(sam_th60016(seq(0, 100), th  = 20)[[2]][101], SPL60016[which.min(SPL60016)],
-  resp60016[which.min(resp60016)], resp60016C[which.min(resp60016C)])
+  resp60016[which.min(resp60016)], resp60016C[which.min(resp60016C)], 
+  resp60016D[which.min(resp60016D)])
 
 
 #####
@@ -3298,7 +3726,7 @@ sam_th60046 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -3318,7 +3746,7 @@ sam_th60046 <- function(t, th) {
 
 str_pl60046A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3360,7 +3788,7 @@ for(i in 1: length(f)){
 
 str_pl60046B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3407,7 +3835,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl60046C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3485,7 +3913,7 @@ sam_th601 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -3506,7 +3934,7 @@ sam_th601 <- function(t, th) {
 
 str_pl601A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3547,7 +3975,7 @@ for(i in 1: length(f)){
 
 str_pl601B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3594,7 +4022,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl601C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3673,7 +4101,7 @@ sam_th70013 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -3692,7 +4120,7 @@ sam_th70013 <- function(t, th) {
 
 str_pl70013A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3735,7 +4163,7 @@ for(i in 1: length(f)){
 
 str_pl70013B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3780,7 +4208,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl70013C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3825,7 +4253,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl70013D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3906,7 +4334,7 @@ sam_th70026 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -3925,7 +4353,7 @@ sam_th70026 <- function(t, th) {
 
 str_pl70026A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -3967,7 +4395,7 @@ for(i in 1: length(f)){
 
 str_pl70026B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4012,7 +4440,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl70026C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4057,7 +4485,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl70026D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4138,7 +4566,7 @@ sam_th70046 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -4159,7 +4587,7 @@ sam_th70046 <- function(t, th) {
 
 str_pl70046A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4200,7 +4628,7 @@ for(i in 1: length(f)){
 
 str_pl70046B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4247,7 +4675,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl70046C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4293,7 +4721,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl70046D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4378,7 +4806,7 @@ sam_th701 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -4397,7 +4825,7 @@ sam_th701 <- function(t, th) {
 
 str_pl701A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4438,7 +4866,7 @@ for(i in 1: length(f)){
 
 str_pl701B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4484,7 +4912,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl701C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4531,7 +4959,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl701D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4613,7 +5041,7 @@ sam_th8002 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -4633,7 +5061,7 @@ sam_th8002 <- function(t, th) {
 
 str_pl8002A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4674,7 +5102,7 @@ for(i in 1: length(f)){
 
 str_pl8002B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4720,7 +5148,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl8002C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4766,7 +5194,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl8002D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4850,7 +5278,7 @@ sam_th80046 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -4868,7 +5296,7 @@ sam_th80046 <- function(t, th) {
 
 str_pl80046A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4909,7 +5337,7 @@ for(i in 1: length(f)){
 
 str_pl80046B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -4954,7 +5382,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl80046C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5000,7 +5428,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl80046D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5082,7 +5510,7 @@ sam_th801 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -5100,7 +5528,7 @@ sam_th801 <- function(t, th) {
 
 str_pl801A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5141,7 +5569,7 @@ for(i in 1: length(f)){
 
 str_pl801B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5186,7 +5614,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl801C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5232,7 +5660,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl801D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5314,7 +5742,7 @@ sam_th9004 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -5332,7 +5760,7 @@ sam_th9004 <- function(t, th) {
 
 str_pl9004A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5373,7 +5801,7 @@ for(i in 1: length(f)){
 
 str_pl9004B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5419,7 +5847,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl9004C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5465,7 +5893,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl9004D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5546,7 +5974,7 @@ sam_th901 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -5565,7 +5993,7 @@ sam_th901 <- function(t, th) {
 
 str_pl901A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5606,7 +6034,7 @@ for(i in 1: length(f)){
 
 str_pl901B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5651,7 +6079,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl901C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5698,7 +6126,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl901D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5774,7 +6202,7 @@ sam_th100 <- function(t, th) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = resT
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
@@ -5793,7 +6221,7 @@ sam_th100 <- function(t, th) {
 
 str_pl100A <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5834,7 +6262,7 @@ for(i in 1: length(f)){
 
 str_pl100B <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5880,7 +6308,7 @@ for(i in 1: length(g[1, ])) {
 
 str_pl100C <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   
@@ -5927,7 +6355,7 @@ for(i in 1: length(h[1, ])) {
 
 str_pl100D <- function(x) {
   
-  ires = 8
+  ires = resT
   
   t <- seq(0, 100)
   

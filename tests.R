@@ -133,10 +133,10 @@ sam_th10046 <- function(t, th) {
   
   for(i in 1: length(t)) {
     
-    pop[i+1] <- pop[i] * (1 + 0.35 * (1 - (pop[i] / 150)))
+    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 8
+      res = 15
     }
 
     if(i <= (apl[length(apl)] + res - 1)) {

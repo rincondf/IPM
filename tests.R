@@ -133,7 +133,7 @@ sam_th10046 <- function(t, th) {
   
   for(i in 1: length(t)) {
     
-    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    pop[i+1] <- pop[i] * (1 + 0.35 * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
       res = 8
@@ -5863,7 +5863,7 @@ str_pl100C <- function(x) {
   dama1[1] <- 0
   
   for(i in 1: length(t)) {
-    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    pop[i+1] <- pop[i] * (1 + 0.35 * (1 - (pop[i] / 150)))
     if(i >= x[1] & i <= (x[1] + ires) | 
        i >= x[2] & i <= (x[2] + ires) | 
        i >= x[3] & i <= (x[3] + ires)) {
@@ -5917,7 +5917,7 @@ str_pl100D <- function(x) {
   dama1[1] <- 0
   
   for(i in 1: length(t)) {
-    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    pop[i+1] <- pop[i] * (1 + 0.35 * (1 - (pop[i] / 150)))
     if(i >= x[1] & i <= (x[1] + ires) | 
        i >= x[2] & i <= (x[2] + ires) | 
        i >= x[3] & i <= (x[3] + ires) | 
@@ -6065,6 +6065,11 @@ arrows(x0 = which(sam_th100(seq(0, 100), th = 20)[[1]] > 15), y0 = c(0.15, 0.25,
        x1 = which(sam_th100(seq(0, 100), th = 20)[[1]] > 15), y1 = c(0.1, 0.2, 0.25, 0.3),
        lwd = 2)
 
+abline(v = 100, lwd = 2, lty = 2)
+
+# 28% damage
+
+
 plot(str_pl100P1(c(h[, which.min(resp100C)]))[[1]], xlab = "Time (% crop cycle)", 
      ylab = "Pest density per plant", cex.lab = 2, type = "l", 
      cex.axis = 2, lwd  = 2, xlim = c(0, 100), ylim = c(0, 25))
@@ -6087,6 +6092,9 @@ arrows(x0 = h[, which.min(resp100C)], y0 = rep(0.09, 3),
        x1 = h[, which.min(resp100C)], y1 = rep(0.06, 3),
        lwd = 2)
 
+abline(v = 100, lwd = 2, lty = 2)
+
+# 19% damage
 
 
 plot(str_pl100P2(c(j[, which.min(resp100D)]))[[1]], xlab = "Time (% crop cycle)", 

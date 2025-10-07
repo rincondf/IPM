@@ -1,8 +1,14 @@
-sink(file = "original.csv")
+sink(file = "GR_035.csv")
 
 ########
 
-GR = 0.25
+GR = 0.35
+
+
+g <- combn(seq(1, 100), 2)
+h <- combn(seq(1, 100), 3)
+j <- combn(seq(1, 100, 2), 4)
+
 
 #########
 ##############
@@ -318,7 +324,6 @@ str_pl20026B <- function(x) {
   
 }
 
-g <- combn(seq(1, 100), 2)
 
 resp20026 <- rep(NA, length(g[1, ]))
 
@@ -456,7 +461,6 @@ str_pl20046B <- function(x) {
   
 }
 
-g <- combn(seq(1, 100), 2)
 
 resp20046 <- rep(NA, length(g[1, ]))
 
@@ -594,9 +598,6 @@ str_pl201B <- function(x) {
   
 }
 
-
-g <- combn(seq(1, 100), 2)
-
 resp201 <- rep(NA, length(g[1, ]))
 
 
@@ -733,10 +734,8 @@ str_pl30016B <- function(x) {
   
 }
 
-g <- combn(seq(1, 100), 2)
 
 resp30016 <- rep(NA, length(g[1, ]))
-
 
 for(i in 1: length(g[1, ])) {
   resp30016[i] <- str_pl30016B((g[, i]))
@@ -782,8 +781,6 @@ str_pl30016C <- function(x) {
   dama1[length(t)]
   
 }
-
-h <- combn(seq(1, 100), 3)
 
 resp30016C <- rep(NA, length(h[1, ]))
 
@@ -3826,9 +3823,56 @@ for(i in 1: length(h[1, ])) {
 }
 
 
+str_pl70013D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus70013(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp70013D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp70013D[i] <- str_pl70013D(j[, i])
+}
+
+
 
 c(sam_th70013(seq(0, 100), th  = 20)[[2]][101], SPL70013[which.min(SPL70013)],
-  resp70013[which.min(resp70013)], resp70013C[which.min(resp70013C)])
+  resp70013[which.min(resp70013)], resp70013C[which.min(resp70013C)],
+  resp70013D[which.min(resp70013D)])
 
 
 #####
@@ -4011,9 +4055,56 @@ for(i in 1: length(h[1, ])) {
 }
 
 
+str_pl70026D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus70026(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp70026D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp70026D[i] <- str_pl70026D(j[, i])
+}
+
+
 
 c(sam_th70026(seq(0, 100), th  = 20)[[2]][101], SPL70026[which.min(SPL70026)], 
-  resp70026[which.min(resp70026)], resp70026C[which.min(resp70026C)])
+  resp70026[which.min(resp70026)], resp70026C[which.min(resp70026C)],
+  resp70026D[which.min(resp70026D)])
 
 
 #####
@@ -4200,10 +4291,59 @@ for(i in 1: length(h[1, ])) {
 
 
 
+str_pl70046D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus70046(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp70046D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp70046D[i] <- str_pl70046D(j[, i])
+}
+
+
+
+
 
 
 c(sam_th70046(seq(0, 100), th  = 20)[[2]][101], SPL70046[which.min(SPL70046)],
-  resp70046[which.min(resp70046)], resp70046C[which.min(resp70046C)])
+  resp70046[which.min(resp70046)], resp70046C[which.min(resp70046C)],
+  resp70046D[which.min(resp70046D)])
 
 
 #######
@@ -4389,8 +4529,57 @@ for(i in 1: length(h[1, ])) {
 
 
 
+str_pl701D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus701(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp701D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp701D[i] <- str_pl701D(j[, i])
+}
+
+
+
+
 c(sam_th701(seq(0, 100), th  = 20)[[2]][101], SPL701[which.min(SPL701)], 
-  resp701[which.min(resp701)], resp701C[which.min(resp701C)])
+  resp701[which.min(resp701)], resp701C[which.min(resp701C)],
+  resp701D[which.min(resp701D)])
 
 
 #####
@@ -4441,6 +4630,94 @@ sam_th8002 <- function(t, th) {
 
 
 
+
+str_pl8002A <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x & i <= (x + ires)) {
+      apl <- pop[x]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus8002(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+SPL8002 <- rep(NA, length(f))
+
+for(i in 1: length(f)){
+  SPL8002[i] <- str_pl8002A(f[i])
+}
+
+
+
+str_pl8002B <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus8002(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+
+resp8002 <- rep(NA, length(g[1, ]))
+
+
+for(i in 1: length(g[1, ])) {
+  resp8002[i] <- str_pl8002B(g[, i])
+}
+
+
+
+
 str_pl8002C <- function(x) {
   
   ires = 8
@@ -4487,7 +4764,60 @@ for(i in 1: length(h[1, ])) {
 
 
 
-c(sam_th8002(seq(0, 100), th  = 20)[[2]][101], resp8002C[which.min(resp8002C)])
+str_pl8002D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus8002(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp8002D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp8002D[i] <- str_pl8002D(j[, i])
+}
+
+
+
+
+
+
+
+c(sam_th8002(seq(0, 100), th  = 20)[[2]][101], SPL8002[which.min(SPL8002)], 
+  resp8002[which.min(resp8002)], resp8002C[which.min(resp8002C)],
+  resp8002D[which.min(resp8002D)])
 
 
 #####
@@ -4535,6 +4865,90 @@ sam_th80046 <- function(t, th) {
   
 }
 
+
+str_pl80046A <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x & i <= (x + ires)) {
+      apl <- pop[x]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus80046(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+SPL80046 <- rep(NA, length(f))
+
+for(i in 1: length(f)){
+  SPL80046[i] <- str_pl80046A(f[i])
+}
+
+
+
+str_pl80046B <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus80046(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+
+resp80046 <- rep(NA, length(g[1, ]))
+
+
+for(i in 1: length(g[1, ])) {
+  resp80046[i] <- str_pl80046B(g[, i])
+}
 
 
 
@@ -4584,8 +4998,58 @@ for(i in 1: length(h[1, ])) {
 
 
 
+str_pl80046D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus80046(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
 
-c(sam_th80046(seq(0, 100), th  = 20)[[2]][101], resp80046C[which.min(resp80046C)])
+resp80046D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp80046D[i] <- str_pl80046D(j[, i])
+}
+
+
+
+
+
+c(sam_th80046(seq(0, 100), th  = 20)[[2]][101], SPL80046[which.min(SPL80046)], 
+  resp80046[which.min(resp80046)], resp80046C[which.min(resp80046C)], 
+  resp80046D[which.min(resp80046D)])
 
 #####
 
@@ -4633,6 +5097,90 @@ sam_th801 <- function(t, th) {
   
 }
 
+
+str_pl801A <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x & i <= (x + ires)) {
+      apl <- pop[x]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus801(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+SPL801 <- rep(NA, length(f))
+
+for(i in 1: length(f)){
+  SPL801[i] <- str_pl801A(f[i])
+}
+
+
+
+str_pl801B <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus801(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+
+resp801 <- rep(NA, length(g[1, ]))
+
+
+for(i in 1: length(g[1, ])) {
+  resp801[i] <- str_pl801B(g[, i])
+}
 
 
 
@@ -4682,7 +5230,58 @@ for(i in 1: length(h[1, ])) {
 
 
 
-c(sam_th801(seq(0, 100), th  = 20)[[2]][101], resp801C[which.min(resp801C)])
+str_pl801D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus801(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp801D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp801D[i] <- str_pl801D(j[, i])
+}
+
+
+
+
+
+c(sam_th801(seq(0, 100), th  = 20)[[2]][101], SPL801[which.min(SPL801)], 
+  resp801[which.min(resp801)], resp801C[which.min(resp801C)], 
+  resp801D[which.min(resp801D)])
 
 #####
 
@@ -4728,6 +5327,91 @@ sam_th9004 <- function(t, th) {
   
   list(pop, dama1)
   
+}
+
+
+str_pl9004A <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x & i <= (x + ires)) {
+      apl <- pop[x]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus9004(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+SPL9004 <- rep(NA, length(f))
+
+for(i in 1: length(f)){
+  SPL9004[i] <- str_pl9004A(f[i])
+}
+
+
+
+str_pl9004B <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus9004(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+
+resp9004 <- rep(NA, length(g[1, ]))
+
+
+for(i in 1: length(g[1, ])) {
+  resp9004[i] <- str_pl9004B(g[, i])
 }
 
 
@@ -4779,9 +5463,57 @@ for(i in 1: length(h[1, ])) {
 
 
 
+str_pl9004D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus9004(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp9004D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp9004D[i] <- str_pl9004D(j[, i])
+}
 
 
-c(sam_th9004(seq(0, 100), th  = 20)[[2]][101], resp9004C[which.min(resp9004C)])
+
+
+c(sam_th9004(seq(0, 100), th  = 20)[[2]][101], SPL9004[which.min(SPL9004)], 
+  resp9004[which.min(resp9004)], resp9004C[which.min(resp9004C)],
+  resp9004D[which.min(resp9004D)])
 
 
 #####
@@ -4829,6 +5561,91 @@ sam_th901 <- function(t, th) {
   
 }
 
+
+
+str_pl901A <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x & i <= (x + ires)) {
+      apl <- pop[x]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus901(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+SPL901 <- rep(NA, length(f))
+
+for(i in 1: length(f)){
+  SPL901[i] <- str_pl901A(f[i])
+}
+
+
+
+str_pl901B <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus901(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+
+resp901 <- rep(NA, length(g[1, ]))
+
+
+for(i in 1: length(g[1, ])) {
+  resp901[i] <- str_pl901B(g[, i])
+}
 
 
 
@@ -4879,7 +5696,57 @@ for(i in 1: length(h[1, ])) {
 
 
 
-c(sam_th901(seq(0, 100), th  = 20)[[2]][101], resp901C[which.min(resp901C)])
+str_pl901D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001) * sus901(i)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+resp901D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp901D[i] <- str_pl901D(j[, i])
+}
+
+
+
+
+c(sam_th901(seq(0, 100), th  = 20)[[2]][101], SPL901[which.min(SPL901)], 
+  resp901[which.min(resp901)], resp901C[which.min(resp901C)], 
+  resp901D[which.min(resp901D)])
 
 
 #####
@@ -4921,6 +5788,93 @@ sam_th100 <- function(t, th) {
   list(pop, dama1)
   
 }
+
+
+
+str_pl100A <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x & i <= (x + ires)) {
+      apl <- pop[x]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+SPL100 <- rep(NA, length(f))
+
+for(i in 1: length(f)){
+  SPL100[i] <- str_pl100A(f[i])
+}
+
+
+
+str_pl100B <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+  
+}
+
+
+resp100 <- rep(NA, length(g[1, ]))
+
+
+for(i in 1: length(g[1, ])) {
+  resp100[i] <- str_pl100B(g[, i])
+}
+
 
 
 
@@ -4971,6 +5925,60 @@ for(i in 1: length(h[1, ])) {
 
 
 
-c(sam_th100(seq(0, 100), th  = 20)[[2]][101], resp100C[which.min(resp100C)])
+str_pl100D <- function(x) {
+  
+  ires = 8
+  
+  t <- seq(0, 100)
+  
+  res <- rep(NA, length(x))
+  
+  pop <- rep(NA, length(t))
+  pop[1] <- 5
+  
+  dama <- rep(NA, length(t))
+  dama[1] <- 0
+  
+  dama1 <- rep(NA, length(t))
+  dama1[1] <- 0
+  
+  for(i in 1: length(t)) {
+    pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
+    if(i >= x[1] & i <= (x[1] + ires) | 
+       i >= x[2] & i <= (x[2] + ires) | 
+       i >= x[3] & i <= (x[3] + ires) | 
+       i >= x[4] & i <= (x[4] + ires)) {
+      if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
+      if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
+      if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
+      if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
+      
+      pop[i+1] <- 0.01 * apl
+    }
+    
+    
+    dama[i+1] <- (pop[i] * 0.001)
+    dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
+  }
+  
+  dama1[length(t)]
+}
+
+
+resp100D <- rep(NA, length(j[1, ]))
+
+for(i in 1: length(j[1, ])) {
+  resp100D[i] <- str_pl100D(j[, i])
+}
+
+
+
+
+c(sam_th100(seq(0, 100), th  = 20)[[2]][101], SPL100[which.min(SPL100)], 
+  resp100[which.min(resp100)], resp100C[which.min(resp100C)], 
+  resp100D[which.min(resp100D)])
+
+
+##############
 
 sink()

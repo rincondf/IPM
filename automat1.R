@@ -1,9 +1,10 @@
-sink(file = "RE_15.csv")
+sink(file = "SUR_02.csv")
 
 ########
 
-GR = 0.25
-resT = 15
+GR = 0.15
+resT = 10
+Sur = 0.1
 
 g <- combn(seq(1, 100), 2)
 h <- combn(seq(1, 100), 3)
@@ -46,7 +47,7 @@ sam_th10046 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus10046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -81,7 +82,7 @@ str_pl10046A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -141,7 +142,7 @@ sam_th101 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus101(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -176,7 +177,7 @@ str_pl101A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -232,7 +233,7 @@ sam_th20026 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus20026(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -267,7 +268,7 @@ str_pl20026A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -312,7 +313,7 @@ str_pl20026B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -371,7 +372,7 @@ sam_th20046 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus20046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -405,7 +406,7 @@ str_pl20046A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -449,7 +450,7 @@ str_pl20046B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -509,7 +510,7 @@ sam_th201 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus201(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -543,7 +544,7 @@ str_pl201A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -586,7 +587,7 @@ str_pl201B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -645,7 +646,7 @@ sam_th30016 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus30016(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -679,7 +680,7 @@ str_pl30016A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -722,7 +723,7 @@ str_pl30016B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -770,7 +771,7 @@ str_pl30016C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -828,7 +829,7 @@ sam_th30026 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus30026(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -864,7 +865,7 @@ str_pl30026A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -909,7 +910,7 @@ str_pl30026B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -968,7 +969,7 @@ sam_th30046 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus30046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -1003,7 +1004,7 @@ str_pl30046A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1048,7 +1049,7 @@ str_pl30046B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1107,7 +1108,7 @@ sam_th301 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus301(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -1143,7 +1144,7 @@ str_pl301A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1188,7 +1189,7 @@ str_pl301B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1247,7 +1248,7 @@ sam_th40012 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus40012(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -1281,7 +1282,7 @@ str_pl40012A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1326,7 +1327,7 @@ str_pl40012B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1376,7 +1377,7 @@ str_pl40012C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1425,7 +1426,7 @@ str_pl40012D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1482,7 +1483,7 @@ sam_th40016 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus40016(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -1516,7 +1517,7 @@ str_pl40016A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1560,7 +1561,7 @@ str_pl40016B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1609,7 +1610,7 @@ str_pl40016C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1667,7 +1668,7 @@ sam_th40026 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus40026(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -1702,7 +1703,7 @@ str_pl40026A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1746,7 +1747,7 @@ str_pl40026B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1794,7 +1795,7 @@ str_pl40026C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1851,7 +1852,7 @@ sam_th40046 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus40046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -1885,7 +1886,7 @@ str_pl40046A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1929,7 +1930,7 @@ str_pl40046B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -1977,7 +1978,7 @@ str_pl40046C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2036,7 +2037,7 @@ sam_th401 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus401(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -2070,7 +2071,7 @@ str_pl401A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2113,7 +2114,7 @@ str_pl401B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2162,7 +2163,7 @@ str_pl401C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2222,7 +2223,7 @@ sam_th5001 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus5001(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -2256,7 +2257,7 @@ str_pl5001A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2299,7 +2300,7 @@ str_pl5001B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2348,7 +2349,7 @@ str_pl5001C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2396,7 +2397,7 @@ str_pl5001D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2457,7 +2458,7 @@ sam_th50016 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus50016(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -2492,7 +2493,7 @@ str_pl50016A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2536,7 +2537,7 @@ str_pl50016B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2585,7 +2586,7 @@ str_pl50016C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2633,7 +2634,7 @@ str_pl50016D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2694,7 +2695,7 @@ sam_th50026 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus50026(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -2729,7 +2730,7 @@ str_pl50026A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2773,7 +2774,7 @@ str_pl50026B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2823,7 +2824,7 @@ str_pl50026C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2883,7 +2884,7 @@ sam_th50046 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus50046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -2917,7 +2918,7 @@ str_pl50046A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -2960,7 +2961,7 @@ str_pl50046B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3008,7 +3009,7 @@ str_pl50046C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3069,7 +3070,7 @@ sam_th501 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus501(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -3104,7 +3105,7 @@ str_pl501A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3149,7 +3150,7 @@ str_pl501B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3197,7 +3198,7 @@ str_pl501C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3255,7 +3256,7 @@ sam_th6001 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus6001(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -3289,7 +3290,7 @@ str_pl6001A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3333,7 +3334,7 @@ str_pl6001B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3383,7 +3384,7 @@ str_pl6001C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3433,7 +3434,7 @@ str_pl6001D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3494,7 +3495,7 @@ sam_th60016 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus60016(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -3528,7 +3529,7 @@ str_pl60016A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3572,7 +3573,7 @@ str_pl60016B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3622,7 +3623,7 @@ str_pl60016C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3671,7 +3672,7 @@ str_pl60016D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3730,7 +3731,7 @@ sam_th60046 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus60046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -3765,7 +3766,7 @@ str_pl60046A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3809,7 +3810,7 @@ str_pl60046B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3859,7 +3860,7 @@ str_pl60046C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3917,7 +3918,7 @@ sam_th601 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus601(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -3953,7 +3954,7 @@ str_pl601A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -3996,7 +3997,7 @@ str_pl601B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4046,7 +4047,7 @@ str_pl601C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4105,7 +4106,7 @@ sam_th70013 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus70013(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -4139,7 +4140,7 @@ str_pl70013A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4184,7 +4185,7 @@ str_pl70013B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4232,7 +4233,7 @@ str_pl70013C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4279,7 +4280,7 @@ str_pl70013D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4338,7 +4339,7 @@ sam_th70026 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus70026(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -4372,7 +4373,7 @@ str_pl70026A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4416,7 +4417,7 @@ str_pl70026B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4464,7 +4465,7 @@ str_pl70026C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4511,7 +4512,7 @@ str_pl70026D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4570,7 +4571,7 @@ sam_th70046 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus70046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -4606,7 +4607,7 @@ str_pl70046A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4649,7 +4650,7 @@ str_pl70046B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4699,7 +4700,7 @@ str_pl70046C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4747,7 +4748,7 @@ str_pl70046D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4810,7 +4811,7 @@ sam_th701 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus701(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -4844,7 +4845,7 @@ str_pl701A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4887,7 +4888,7 @@ str_pl701B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4936,7 +4937,7 @@ str_pl701C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -4985,7 +4986,7 @@ str_pl701D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5045,7 +5046,7 @@ sam_th8002 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus8002(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -5080,7 +5081,7 @@ str_pl8002A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5123,7 +5124,7 @@ str_pl8002B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5172,7 +5173,7 @@ str_pl8002C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5220,7 +5221,7 @@ str_pl8002D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5282,7 +5283,7 @@ sam_th80046 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus80046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -5315,7 +5316,7 @@ str_pl80046A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5358,7 +5359,7 @@ str_pl80046B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5406,7 +5407,7 @@ str_pl80046C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5454,7 +5455,7 @@ str_pl80046D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5514,7 +5515,7 @@ sam_th801 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus801(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -5547,7 +5548,7 @@ str_pl801A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5590,7 +5591,7 @@ str_pl801B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5638,7 +5639,7 @@ str_pl801C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5686,7 +5687,7 @@ str_pl801D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5746,7 +5747,7 @@ sam_th9004 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus9004(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -5779,7 +5780,7 @@ str_pl9004A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5822,7 +5823,7 @@ str_pl9004B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5871,7 +5872,7 @@ str_pl9004C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5919,7 +5920,7 @@ str_pl9004D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -5978,7 +5979,7 @@ sam_th901 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001) * sus901(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -6012,7 +6013,7 @@ str_pl901A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -6055,7 +6056,7 @@ str_pl901B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -6103,7 +6104,7 @@ str_pl901C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -6152,7 +6153,7 @@ str_pl901D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -6206,7 +6207,7 @@ sam_th100 <- function(t, th) {
     }
     
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * Sur
     }
     dama[i+1] <- (pop[i] * 0.001)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))
@@ -6240,7 +6241,7 @@ str_pl100A <- function(x) {
     pop[i+1] <- pop[i] * (1 + GR * (1 - (pop[i] / 150)))
     if(i >= x & i <= (x + ires)) {
       apl <- pop[x]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -6283,7 +6284,7 @@ str_pl100B <- function(x) {
        i >= x[2] & i <= (x[2] + ires)) {
       if(i >= x[1] & i <= (x[1] + ires)) apl <- pop[x[1]]
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -6332,7 +6333,7 @@ str_pl100C <- function(x) {
       if(i >= x[2] & i <= (x[2] + ires)) apl <- pop[x[2]]
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     
@@ -6381,7 +6382,7 @@ str_pl100D <- function(x) {
       if(i >= x[3] & i <= (x[3] + ires)) apl <- pop[x[3]]
       if(i >= x[4] & i <= (x[4] + ires)) apl <- pop[x[4]]
       
-      pop[i+1] <- 0.01 * apl
+      pop[i+1] <- Sur * apl
     }
     
     

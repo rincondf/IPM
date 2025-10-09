@@ -133,14 +133,14 @@ sam_th10046 <- function(t, th) {
   
   for(i in 1: length(t)) {
     
-    pop[i+1] <- pop[i] * (1 + 0.25 * (1 - (pop[i] / 150)))
+    pop[i+1] <- pop[i] * (1 + 0.15 * (1 - (pop[i] / 150)))
     if(pop[i+1] >= th) {
       apl <- which(pop >= th)
-      res = 15
+      res = 10
     }
 
     if(i <= (apl[length(apl)] + res - 1)) {
-      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.01
+      pop[i+1] <- pop[apl[length(apl)] - 1] * 0.2
     }
     dama[i+1] <- (pop[i] * 0.001) * sus10046(i)
     dama1[i+1] <- dama1[i] + (dama[i+1] * (1 - (dama1[i] / 0.8)))

@@ -38,7 +38,7 @@ resp10046B <- rep(NA, length(g[1, ]))
 
 
 for(i in 1: length(g[1, ])) {
-  resp10046B[i] <- str_plB(x = g[, i], GR = 0.15, Sur = 0.2, resT = 10)
+  resp10046B[i] <- str_plB(x = g[, i], GR = 0.15, Sur = 0.1, resT = 10)
 }
 
 

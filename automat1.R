@@ -6,6 +6,7 @@ GR = 0.15
 resT = 10
 Sur = 0.1
 
+f <- seq(1, 100)
 g <- combn(seq(1, 100), 2)
 h <- combn(seq(1, 100), 3)
 j <- combn(seq(1, 100, 2), 4)
@@ -94,8 +95,6 @@ str_pl10046A <- function(x) {
 }
 
 
-
-f <- seq(1, 100)
 SPL10046 <- rep(NA, length(f))
 
 for(i in 1: length(f)){

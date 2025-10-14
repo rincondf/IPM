@@ -22,11 +22,12 @@ panelfirst <- function(trans) {
             add = T) 
 }
 
-layout(mat = matrix(c(1, 1, 2, 2, 3, 1, 1, 2, 2, 3, 4, 4, 5, 5, 3, 4, 4, 5, 5, 3), nrow = 4, ncol = 5, byrow = T))
+layout(mat = matrix(c(1, 1, 2, 2, 3, 1, 1, 2, 2, 3, 4, 4, 5, 5, 3, 4, 4, 5, 5, 3, 
+                      6, 6, 7, 7, 3, 6, 6, 7, 7, 3, 8, 8, 9, 9, 3, 8, 8, 9, 9, 3), nrow = 8, ncol = 5, byrow = T))
 
-par(mar = c(5, 5, 2, 2))
+par(mar = c(3, 3, 1, 1))
 
-scatter3D(ThGR005_resp$ov_suc, ThGR005_resp$int, ThGR005_resp$Th, 
+scatter3D(GR005$ov_suc, GR005$int, GR005$Th, 
           pch = 19, cex = 0.5, lwd = 10, type = "h",panel.first = panelfirst, 
           bty = "b2", phi = 30, theta = 30, ticktype = "detailed", xlim = c(0, 100), 
           ylim = c(0, 1), zlim = c(0, 0.55), colkey = FALSE, xlab = "\nOverall succeptibility",
@@ -34,44 +35,75 @@ scatter3D(ThGR005_resp$ov_suc, ThGR005_resp$int, ThGR005_resp$Th,
 
 
 
-scatter3D(PLGR005_resp$ov_suc, PLGR005_resp$int, PLGR005_resp$pl3, 
+scatter3D(GR005$ov_suc, GR005$int, GR005$pl2, 
           pch = 19, cex = 0.5, lwd = 10, type = "h",panel.first = panelfirst, 
           bty = "b2", phi = 30, theta = 30, ticktype = "detailed", xlim = c(0, 100), 
           ylim = c(0, 1), zlim = c(0, 0.55), 
-          col = jet.col(100)[cut(c(ThGR005_resp$Th, PLGR005_resp$pl3), breaks = 100, labels = FALSE)[34: 66]],
+          col = jet.col(100)[cut(c(GR005$Th, GR005$pl2), breaks = 100, labels = FALSE)[41: 80]],
           colkey = FALSE, xlab = "\nOverall succeptibility",
           ylab = "\nIntensity", zlab = "\nDamage", cex.lab = 2, cex.axis = 1.5)
 
-colkey (clim = c(0, ThGR005_resp$Th[which.max(ThGR005_resp$Th)]), 
+colkey (clim = c(0, GR005$Th[which.max(GR005$Th)]), 
         side = 4, length = 0.5, width = 2, dist = 0, shift = 0, 
         addlines = FALSE, col.clab = NULL, cex.axis = 2, 
         side.clab = NULL, line.clab = NULL, adj.clab = NULL, font.clab = NULL)
 
 
 
-scatter3D(GR01_resp$ov_suc, GR01_resp$int, GR01_resp$Th, 
+scatter3D(GR01$ov_suc, GR01$int, GR01$Th, 
           pch = 19, cex = 0.5, lwd = 10, type = "h",panel.first = panelfirst, 
           bty = "b2", phi = 30, theta = 30, ticktype = "detailed", xlim = c(0, 100), 
           ylim = c(0, 1), zlim = c(0, 0.55), colkey = FALSE, xlab = "\nOverall succeptibility",
           ylab = "\nIntensity",  zlab = "\nDamage", cex.lab = 2, cex.axis = 1.5,
-          col = jet.col(100)[cut(c(ThGR005_resp$Th, GR01_resp$Th), breaks = 100, labels = FALSE)[34: 66]])
+          col = jet.col(100)[cut(c(GR005$Th, GR01$Th), breaks = 100, labels = FALSE)[41: 80]])
 
 
 
-scatter3D(GR01_resp$ov_suc, GR01_resp$int, GR01_resp$pl3, 
+scatter3D(GR01$ov_suc, GR01$int, GR01$pl3, 
           pch = 19, cex = 0.5, lwd = 10, type = "h",panel.first = panelfirst, 
           bty = "b2", phi = 30, theta = 30, ticktype = "detailed", xlim = c(0, 100), 
           ylim = c(0, 1), zlim = c(0, 0.55), 
-          col = jet.col(100)[cut(c(ThGR005_resp$Th, GR01_resp$pl3), breaks = 100, labels = FALSE)[34: 66]],
+          col = jet.col(100)[cut(c(GR005$Th, GR01$pl3), breaks = 100, labels = FALSE)[41: 80]],
           colkey = FALSE, xlab = "\nOverall succeptibility",
           ylab = "\nIntensity", zlab = "\nDamage", cex.lab = 2, cex.axis = 1.5)
 
 
 
+scatter3D(GR015$ov_suc, GR015$int, GR015$Th, 
+          pch = 19, cex = 0.5, lwd = 10, type = "h",panel.first = panelfirst, 
+          bty = "b2", phi = 30, theta = 30, ticktype = "detailed", xlim = c(0, 100), 
+          ylim = c(0, 1), zlim = c(0, 0.55), colkey = FALSE, xlab = "\nOverall succeptibility",
+          ylab = "\nIntensity",  zlab = "\nDamage", cex.lab = 2, cex.axis = 1.5,
+          col = jet.col(100)[cut(c(GR005$Th, GR015$Th), breaks = 100, labels = FALSE)[41: 80]])
 
 
 
+scatter3D(GR015$ov_suc, GR015$int, GR015$pl4, 
+          pch = 19, cex = 0.5, lwd = 10, type = "h",panel.first = panelfirst, 
+          bty = "b2", phi = 30, theta = 30, ticktype = "detailed", xlim = c(0, 100), 
+          ylim = c(0, 1), zlim = c(0, 0.55), 
+          col = jet.col(100)[cut(c(GR005$Th, GR015$pl4), breaks = 100, labels = FALSE)[41: 80]],
+          colkey = FALSE, xlab = "\nOverall succeptibility",
+          ylab = "\nIntensity", zlab = "\nDamage", cex.lab = 2, cex.axis = 1.5)
 
+
+
+scatter3D(GR02$ov_suc, GR02$int, GR02$Th, 
+          pch = 19, cex = 0.5, lwd = 10, type = "h",panel.first = panelfirst, 
+          bty = "b2", phi = 30, theta = 30, ticktype = "detailed", xlim = c(0, 100), 
+          ylim = c(0, 1), zlim = c(0, 0.55), colkey = FALSE, xlab = "\nOverall succeptibility",
+          ylab = "\nIntensity",  zlab = "\nDamage", cex.lab = 2, cex.axis = 1.5,
+          col = jet.col(100)[cut(c(GR005$Th, GR02$Th), breaks = 100, labels = FALSE)[41: 80]])
+
+
+
+scatter3D(GR02$ov_suc, GR02$int, GR02$pl4, 
+          pch = 19, cex = 0.5, lwd = 10, type = "h",panel.first = panelfirst, 
+          bty = "b2", phi = 30, theta = 30, ticktype = "detailed", xlim = c(0, 100), 
+          ylim = c(0, 1), zlim = c(0, 0.55), 
+          col = jet.col(100)[cut(c(GR005$Th, GR02$pl4), breaks = 100, labels = FALSE)[41: 80]],
+          colkey = FALSE, xlab = "\nOverall succeptibility",
+          ylab = "\nIntensity", zlab = "\nDamage", cex.lab = 2, cex.axis = 1.5)
 
 
 

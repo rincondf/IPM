@@ -1,9 +1,9 @@
-sink(file = "GR02_07s.csv.csv")
+sink(file = "RES5_07s.csv.csv")
 
 ########
 
-GR = 0.2
-resT = 10
+GR = 0.15
+resT = 5
 Sur = 0.1
 thr = 17
 

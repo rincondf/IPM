@@ -145,7 +145,7 @@ arrows(c(5, 35, 65, 95), 17.5, c(5, 35, 65, 95), 16, length = 0.05, xpd = TRUE, 
 
 axis(side = 2, at = seq(0, 18, 3), labels = NA)
 
-abline(h = 15, lty  = 2)
+abline(h = 15, lwd  = 2)
 title(main = "A", xpd = NA, cex.main = 2, adj = 0, line = 1)
 
 
@@ -173,7 +173,7 @@ lines(seq(0, 101), sam_th100_A(seq(0, 100), th = 15)[[1]], lwd = 2)
 
 arrows(c(15, 85), 17.5, c(15, 85), 16, length = 0.05, xpd = TRUE, lwd  = 2)
 
-abline(h = 15, lty  = 2)
+abline(h = 15, lwd  = 2)
 axis(side = 2, at = seq(0, 18, 3), labels = NA)
 title(main = "B", xpd = NA, cex.main = 2, adj = 0, line = 1)
 
@@ -199,7 +199,7 @@ polygon(x = c(0, seq(0, 101), 101), y = c(0, f3, 0), col  = "darkseagreen", bord
 
 lines(seq(0, 101), f3, lwd = 2)
 
-abline(h = 15, lty  = 2)
+abline(h = 15, lwd  = 2)
 axis(side = 2, at = seq(0, 18, 3), labels = NA)
 arrows(10, -2.25, 90, -2.25, length = 0.12, xpd = TRUE, lwd  = 2)
 title(main = "C", xpd = NA, cex.main = 2, adj = 0, line = 1)

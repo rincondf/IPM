@@ -71,7 +71,7 @@ DDs = seq(100, 2000)
 ################################################################################
 
 par(mfrow = c(1, 2))
-par(mar = c(5.5, 5, 3, 4) + 0.1)
+par(mar = c(5.5, 5, 4, 4) + 0.1)
 plot(DDs, 
      summer1EL(DDs), type = "l", ylab = "", xlab = "",
      xlim = c(0, 1500), ylim = c(0, 0.005), yaxt = "n", xaxt = "n", cex.lab = 2, 
@@ -97,10 +97,10 @@ polygon(c(DDs, 0), c(summer2EH(DDs), 0), col = eggcol,
 
 title(ylab = "Relative abundance", cex.lab = 3, line = 2.5)
 title(xlab = "Degree days", cex.lab = 3, line  = 4)
-title(main = "Phenology", cex.main = 3)
+title(main = "Phenology", cex.main = 3, line  = 2)
 
 
-par(mar = c(5.5, 7, 3, 2) + 0.1)
+par(mar = c(5.5, 7, 4, 2) + 0.1)
 plot(DDs, 
      summer1EL(DDs), type = "l", ylab = "", xlab = "",
      xlim = c(0, 1500), ylim = c(0, 0.005), yaxt = "n", xaxt = "n", cex.lab = 2, 
@@ -116,6 +116,6 @@ polygon(c(DDs, 0), c(summer1EL(DDs), 0), col = crowcol,
 polygon(c(DDs, 0), c(summer2EL(DDs), 0), col = crowcol, 
         border = NA)
 
-title(ylab = "Abundance", cex.lab = 3, line = 2.5)
+title(ylab = "Trap catches", cex.lab = 3, line = 2.5)
 title(xlab = "Degree days", cex.lab = 3, line  = 4)
-title(main = "Population dynamics", cex.main = 3)
+title(main = "Population dynamics", cex.main = 3, line = 2)
